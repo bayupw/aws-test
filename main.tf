@@ -74,8 +74,8 @@ module "spoke1_public_ec2" {
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = var.instance_username
-  instance_password              = var.instance_password
+  instance_username              = "ec2-user"
+  instance_password              = "Aviatrix123#"
 }
 
 # Create Private EC2 instances in Spoke1 for each az
@@ -93,8 +93,8 @@ module "spoke1_private_ec2" {
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = var.instance_username
-  instance_password              = var.instance_password
+  instance_username              = "ec2-user"
+  instance_password              = "Aviatrix123#"
 }
 
 # Create Public EC2 instances in Spoke2 for each az
@@ -112,8 +112,8 @@ module "spoke2_public_ec2" {
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = var.instance_username
-  instance_password              = var.instance_password
+  instance_username              = "ec2-user"
+  instance_password              = "Aviatrix123#"
 }
 
 # Create Private EC2 instances in Spoke2 for each az
@@ -131,6 +131,6 @@ module "spoke2_private_ec2" {
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = var.instance_username
-  instance_password              = var.instance_password
+  instance_username              = "ec2-user"
+  instance_password              = "Aviatrix123#"
 }
