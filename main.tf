@@ -70,12 +70,12 @@ module "spoke1_public_ec2" {
   instance_hostname              = "spoke1-public-ec2-${element(split("-", each.value.name), length(split("-", each.value.name)) - 1)}" # get last element of the public_subnets name which is the az suffix 
   vpc_id                         = module.aws_syd_spoke1.vpc.vpc_id
   subnet_id                      = each.value.subnet_id
-  key_name                       = "ec2_keypair"
+  key_name                       = var.key_name
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = "ec2-user"
-  instance_password              = "Aviatrix123#"
+  instance_username              = var.username
+  instance_password              = var.password
 }
 
 # Create Private EC2 instances in Spoke1 for each az
@@ -89,12 +89,12 @@ module "spoke1_private_ec2" {
   instance_hostname              = "spoke1-private-ec2-${element(split("-", each.value.name), length(split("-", each.value.name)) - 1)}" # get last element of the public_subnets name which is the az suffix 
   vpc_id                         = module.aws_syd_spoke1.vpc.vpc_id
   subnet_id                      = each.value.subnet_id
-  key_name                       = "ec2_keypair"
-  associate_public_ip_address    = true
+  key_name                       = var.key_name
+  associate_public_ip_address    = false
   enable_password_authentication = true
   random_password                = false
-  instance_username              = "ec2-user"
-  instance_password              = "Aviatrix123#"
+  instance_username              = var.username
+  instance_password              = var.password
 }
 
 # Create Public EC2 instances in Spoke2 for each az
@@ -108,12 +108,12 @@ module "spoke2_public_ec2" {
   instance_hostname              = "spoke2-public-ec2-${element(split("-", each.value.name), length(split("-", each.value.name)) - 1)}" # get last element of the public_subnets name which is the az suffix 
   vpc_id                         = module.aws_syd_spoke2.vpc.vpc_id
   subnet_id                      = each.value.subnet_id
-  key_name                       = "ec2_keypair"
+  key_name                       = var.key_name
   associate_public_ip_address    = true
   enable_password_authentication = true
   random_password                = false
-  instance_username              = "ec2-user"
-  instance_password              = "Aviatrix123#"
+  instance_username              = var.username
+  instance_password              = var.password
 }
 
 # Create Private EC2 instances in Spoke2 for each az
@@ -127,10 +127,10 @@ module "spoke2_private_ec2" {
   instance_hostname              = "spoke2-private-ec2-${element(split("-", each.value.name), length(split("-", each.value.name)) - 1)}" # get last element of the public_subnets name which is the az suffix 
   vpc_id                         = module.aws_syd_spoke2.vpc.vpc_id
   subnet_id                      = each.value.subnet_id
-  key_name                       = "ec2_keypair"
-  associate_public_ip_address    = true
+  key_name                       = var.key_name
+  associate_public_ip_address    = false
   enable_password_authentication = true
   random_password                = false
-  instance_username              = "ec2-user"
-  instance_password              = "Aviatrix123#"
+  instance_username              = var.username
+  instance_password              = var.password
 }

@@ -8,6 +8,18 @@ variable "aws_account" {
   default = "aws-account"
 }
 
+variable "username" {
+  description = "EC2 instance username"
+  type        = string
+  default     = "ec2-user"
+}
+
+variable "password" {
+  description = "EC2 instance password"
+  type        = string
+  default     = "Aviatrix123#"
+}
+
 variable "key_name" {
   description = "Existing EC2 Key Pair"
   type        = string
